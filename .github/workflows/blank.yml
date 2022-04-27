@@ -26,6 +26,6 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: docker login
-        run : docker login -u "harsh" -p "harsh4354"
+        run : docker login -u "harsh" -p "harsh4354" --password-stdin
 
       
