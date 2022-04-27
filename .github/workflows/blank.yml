@@ -21,7 +21,7 @@ jobs:
    
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Docker login
         env:
           DOCKER_USER: ${{ secrets.USER_NAME }}
@@ -31,7 +31,7 @@ jobs:
         run : pwd && ls -a && cd .github && cd workflows && ls && pwd
       
       - name: build docker image
-        run : docker build -t harshdwi/demo/my-python:custom /home/runner/work/trial/trial/.github/workflows/ --file Dockerfile
+        run : pwd && docker build -t harshdwi/demo/my-python:custom . --file "Dockerfile"
         
       - name: push docker image
         run : docker push harshdwi/demo/my-python:custom 
