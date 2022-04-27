@@ -31,7 +31,7 @@ jobs:
         run : pwd && ls -a && cd .github && cd workflows && ls && pwd
       
       - name: build docker image
-        run : pwd && docker build -t harshdwi/demo/my-python:custom ./.github/workflows/ --file "Dockerfile"
+        run : cd ./.github/workflows/  && docker build -t harshdwi/demo/my-python:custom . --file "Dockerfile"
         
       - name: push docker image
         run : docker push harshdwi/demo/my-python:custom 
