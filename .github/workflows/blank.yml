@@ -27,7 +27,9 @@ jobs:
           DOCKER_USER: ${{ secrets.USER_NAME }}
           DOCKER_PASSWORD: ${{ secrets.USER_PASSWORD }}
         run : docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        
+      - name: list
+        run : pwd
+      
       - name: build docker image
         run : docker build -t harshdwi/demo/my-python:custom /home/runner/work/trial/.github/workflows/Dockerfile
         
