@@ -29,7 +29,7 @@ jobs:
         run : docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         
       - name: build docker image
-        run : docker build Dockerfile -t harshdwi/demo/my-python:custom 
+        run : docker build .github/workflows/Dockerfile -t harshdwi/demo/my-python:custom 
         
       - name: push docker image
         run : docker push harshdwi/demo/my-python:custom 
