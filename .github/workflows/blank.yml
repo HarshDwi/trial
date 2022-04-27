@@ -37,7 +37,7 @@ jobs:
       
       - name: build docker image
         run : |
-               cd ./.github/workflows/  && docker build -t harshdwi/demo/my-python:custom . --file "Dockerfile"
+                docker build -t harshdwi/demo/my-python:custom . 
       - name: Docker login
         env:
           DOCKER_USER: ${{ secrets.USER_NAME }}
