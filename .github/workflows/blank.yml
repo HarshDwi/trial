@@ -23,8 +23,17 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      - name: list
-        run : pwd && ls -a && cd .github && cd workflows && ls && pwd
+      - uses: google-github-actions/setup-gcloud@v0
+        with:
+          version: "270.0.0"
+          service_account_email: ${{ secrets.GKE_EMAIL }}
+          service_account_key: ${{ secrets.GKE_KEY }}
+
+      # Configure docker to use the gcloud command-line tool as a credential helper
+      - run: |
+          # Set up docker to authenticate
+          # via gcloud command-line tool.
+          gcloud auth configure-docker
       
       - name: build docker image
         run : |
